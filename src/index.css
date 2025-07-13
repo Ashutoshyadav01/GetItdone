@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* Slick slider arrow styling */
+.slick-prev:before,
+.slick-next:before {
+  color: white;
+  font-size: 30px;
+}
