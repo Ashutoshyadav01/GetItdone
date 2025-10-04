@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const LoginPage = () => {
   return (
-    
+
     <div className="min-h-screen flex items-center justify-center bg-primary text-white px-2">
-        
+
       <div className="bg-white text-black p-6 rounded shadow-md w-full max-w-md">
         <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
 
@@ -24,12 +24,12 @@ const LoginPage = () => {
             Login
           </button>
 
-         <p className="text-primary hover:text-secondary cursor-pointer text-center">
-  Don’t have an account?<Link to={"/signup"} > <span className="underline"  >Register</span></Link>
-</p>
+          <p className="text-primary hover:text-secondary cursor-pointer text-center">
+            <Link to={"/signup"} > Don’t have an account? <span className="underline"  >Register</span></Link>
+          </p>
 
         </div>
-         
+
       </div>
     </div>
   );
