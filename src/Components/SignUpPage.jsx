@@ -1,13 +1,12 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom';
-
-const LoginPage = () => {
-  return (
+const SignUpPage = () => {
+   return (
     
     <div className="min-h-screen flex items-center justify-center bg-primary text-white px-2">
         
       <div className="bg-white text-black p-6 rounded shadow-md w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">Login</h2>
+        <h2 className="text-2xl font-bold mb-6 text-center">SIGN UP</h2>
 
         <div className="space-y-4">
           <input
@@ -20,12 +19,24 @@ const LoginPage = () => {
             placeholder="Enter your password"
             className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary"
           />
+          <input
+            type="text"
+            placeholder="Address Line 1"
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+          <input
+            type="text"
+            placeholder="Address Line 2"
+            className="w-full px-4 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-primary"
+          />
+        
+       
           <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
             Login
           </button>
 
          <p className="text-primary hover:text-secondary cursor-pointer text-center">
-  Don’t have an account?<Link to={"/signup"} > <span className="underline"  >Register</span></Link>
+  <Link to={"/login"} > Already have an account? <span className="underline"  >Click here</span></Link>
 </p>
 
         </div>
@@ -33,6 +44,6 @@ const LoginPage = () => {
       </div>
     </div>
   );
-};
+}
 
-export default LoginPage;
+export default SignUpPage
