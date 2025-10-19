@@ -23,7 +23,7 @@ function Navbar() {
               </Link>
               </li>
           <li><a href="#" className="hover:text-secondary">Post Work</a></li>
-          <li><a href="#" className="hover:text-secondary">My Work</a></li>
+          <li><a href="#" className="hover:text-secondary">Do Work</a></li>
           <li>
             <Link to={"/login"}>
             <button className="bg-secondary text-white px-4 py-2 rounded hover:bg-indigo-600">
