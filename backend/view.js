@@ -21,6 +21,36 @@ async function startServer() {
     });
     console.log("DB connected");
 
+
+   app.post("/login", async (req, res) => {
+  const { emailOrNumber, password } = req.body;
+
+  if (!emailOrNumber || !password) {
+    return res.status(400).json({ error: "Email/Number and password are required" });
+  }
+
+  try {
+    const [user] = await db.execute(
+      `SELECT * FROM consumers WHERE emailorpass = ?`,
+      [emailOrNumber]
+    );
+
+    if (user.length === 0) {
+      return res.status(401).json({ error: "User not found" });
+    }
+
+    const isMatch = await bcrypt.compare(password, user[0].password);
+
+    if (!isMatch) {
+      return res.status(401).json({ error: "Invalid credentials" });
+    }
+
+    res.status(200).json({ message: "Login successful" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
     app.post("/signup", async (req, res) => {
         // Now req.body will have the JSON
         const { emailOrNumber, password, address1, address2, state, district } = req.body;

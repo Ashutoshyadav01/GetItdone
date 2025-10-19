@@ -1,19 +1,40 @@
 import React,{useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
   const [email,setEmail]=useState("")
   const [password,setPassword]=useState("")
+  const navigate = useNavigate();
+
   console.log(email,"email",password,"pass")
 
-  function verifyUser(email, password)
-  {
-    if(!email || !password){
-      console.log("please enter email or password")
-      return
-    }
-    console.log(email,password ,"from verify user")
+function verifyUser(email, password) {
+  if (!email || !password) {
+    console.log("please enter email or password");
+    return;
   }
+
+  fetch("http://localhost:5000/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ emailOrNumber: email, password }),
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+      
+      if (data.message === "Login successful") {
+        localStorage.setItem("auth","true");
+          navigate("/works");          // ✅ redirects page
+        }
+      
+
+    })
+    .catch((err) => console.log(err));
+}
+
   return (
 
     <div className="min-h-screen flex items-center justify-center bg-primary text-white px-2">
