@@ -3,6 +3,7 @@ import Navbar from "./Components/NavBar"
 import LoginPage from "./Components/LoginPage"
 import {Routes,Route} from 'react-router-dom'
 import SignUpPage from "./Components/SignUpPage"
+import PostWork from "./Components/PostWork"
 import Works from "./Components/Works"
 
 function App() {
@@ -21,6 +22,16 @@ function App() {
               : <LoginPage />
           }
         />
+  <Route
+  path="/post"
+  element={
+    localStorage.getItem("auth")=="true"
+    ?
+    <PostWork/>
+    :
+    <LoginPage/>
+  }
+  />
 
 </Routes>
  
